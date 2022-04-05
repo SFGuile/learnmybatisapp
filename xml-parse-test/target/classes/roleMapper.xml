@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.xml_parse_test.RoleMapper">
+  <delete id ="deleteprovince">
+  delete from wx_member_province
+  </delete>
+  
+  <delete id ="deletecity">
+  delete from wx_member_city
+  </delete>
+  
+  <delete id ="deletecounty">
+  delete from wx_member_county
+  </delete>
+  
+  <insert id="insertProvince" parameterType="com.test.xml_parse_test.province" >
+  insert into wx_member_province (province_id,province_name,province_identity) values ( #{id},#{name},#{identity})
+  </insert>
+  
+    <insert id="insertCity" parameterType="com.test.xml_parse_test.city" >
+  insert into wx_member_city (city_id,city_name,province_id,city_identity) values ( #{id},#{name},#{provinceid},#{identity})
+  </insert>
+  
+    <insert  id="insertCounty"  parameterType="com.test.xml_parse_test.county">
+  insert into wx_member_county (county_id,countiy_name,city_id,county_identity) values ( #{id},#{name},#{cityid},#{identity})
+  </insert>
+  </mapper>
